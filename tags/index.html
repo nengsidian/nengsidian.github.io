@@ -38,10 +38,10 @@
     李恒的博客
 </title>
 
-<link rel="alternate" href="/atom.xml" title="李恒的博客" type="application/atom+xml">
+<link rel="alternate" href="./atom.xml" title="李恒的博客" type="application/atom+xml">
 
 
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="./favicon.ico">
 
     
 
@@ -108,18 +108,23 @@
                         </li>
                         
                         <li role="presentation" class="text-center">
+                            <a href="/categories/python/"><i class="fa "></i>
+                                python</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
                             <a href="/categories/前端/"><i class="fa "></i>
                                 前端</a>
                         </li>
                         
                         <li role="presentation" class="text-center">
-                            <a href="/categories/后端/"><i class="fa "></i>
-                                后端</a>
-                        </li>
-                        
-                        <li role="presentation" class="text-center">
-                            <a href="/categories/工具/"><i class="fa "></i>
-                                工具</a>
+                            <a href="/categories/其他/"><i class="fa "></i>
+                                其他</a>
                         </li>
                         
                         <li role="presentation" class="text-center">
@@ -196,9 +201,10 @@
     </h3>
     <div class="notification">
         <p>
-    主题下载：<a href="https://github.com/shenliyang/hexo-theme-snippet" title="fork me" target="_blank">Snippet主题</a> <br/>
-    主题使用：<a href="https://github.com/shenliyang/hexo-theme-snippet/blob/master/README.md#常见问题" title="" target="_blank">常见使用问题</a> <br/>
-    支持主题：<a href="https://github.com/shenliyang/hexo-theme-snippet/stargazers" target="_blank" rel="noopener">Star一下</a>
+    ##主题下载：<a href="https://github.com/shenliyang/hexo-theme-snippet" title="fork me" target="_blank">Snippet主题</a> <br/>
+    ##主题使用：<a href="https://github.com/shenliyang/hexo-theme-snippet/blob/master/README.md#常见问题" title="" target="_blank">常见使用问题</a> <br/>
+    ##支持主题：<a href="https://github.com/shenliyang/hexo-theme-snippet/stargazers" target="_blank" rel="noopener">Star一下</a>
+    暂无公告
 </p>
     </div>
 </div>
@@ -253,7 +259,7 @@
     <h3 class="title">
         归档
     </h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/"><i class="fa" aria-hidden="true">2020年05月</i></a><span class="archive-list-count">2</span></li></ul>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/"><i class="fa" aria-hidden="true">2020年05月</i></a><span class="archive-list-count">1</span></li></ul>
 </div>
 
     
@@ -264,7 +270,9 @@
     </h3>
     <div class="content tag-cloud">
         
-        <a href="/tags/pycharm/" style="font-size: 10px;">pycharm</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a>
+        <canvas width="300" height="300" id="tag-cloud-3d">
+            <a href="/tags/pycharm/" style="font-size: 10px;">pycharm</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a>
+        </canvas>
         
     </div>
 </div>
@@ -327,6 +335,30 @@
 <script src="/js/search.js?rev=@@hash.js"></script>
 
 
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
 
 
 

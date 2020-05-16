@@ -41,10 +41,10 @@ Ctrl + Shift ..." />
     李恒的博客
 </title>
 
-<link rel="alternate" href="/atom.xml" title="李恒的博客" type="application/atom+xml">
+<link rel="alternate" href="./atom.xml" title="李恒的博客" type="application/atom+xml">
 
 
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="./favicon.ico">
 
     
 
@@ -111,18 +111,23 @@ Ctrl + Shift ..." />
                         </li>
                         
                         <li role="presentation" class="text-center">
+                            <a href="/categories/python/"><i class="fa "></i>
+                                python</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
                             <a href="/categories/前端/"><i class="fa "></i>
                                 前端</a>
                         </li>
                         
                         <li role="presentation" class="text-center">
-                            <a href="/categories/后端/"><i class="fa "></i>
-                                后端</a>
-                        </li>
-                        
-                        <li role="presentation" class="text-center">
-                            <a href="/categories/工具/"><i class="fa "></i>
-                                工具</a>
+                            <a href="/categories/其他/"><i class="fa "></i>
+                                其他</a>
                         </li>
                         
                         <li role="presentation" class="text-center">
@@ -317,12 +322,6 @@ Ctrl + Shift ..." />
 <div class="article-nav prev-next-wrap clearfix">
     
     
-    <a href="/2020/05/15/hello-world/" class="next-post btn btn-default" title='Hello World'>
-        <span class="hidden-lg">下一篇</span>
-        <span class="hidden-xs">
-            Hello World</span><i class="fa fa-angle-right fa-fw"></i>
-    </a>
-    
 </div>
 
 <div id="comments">
@@ -402,6 +401,30 @@ new Valine({
     </div>
 </div>
 
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
 
 
 
