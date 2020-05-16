@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="李恒的博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="反爬" />
+
+
+<meta name="description" content="1、通过headers中的User-Agent字段来反爬解决办法：随机选择User-Agent
+2、通过referer字段或者是其他字段来反爬解决办法：设置headers里的相应字段
+3、通过c..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    常用反爬手段和解决办法 |
+    
+    李恒的博客
+</title>
+
+<link rel="alternate" href="/atom.xml" title="李恒的博客" type="application/atom+xml">
+
+
+<link rel="icon" href="./favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='liheng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        李恒的博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/python/"><i class="fa "></i>
+                                python</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/数据库/"><i class="fa "></i>
+                                数据库</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/其他/"><i class="fa "></i>
+                                其他</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="常用反爬手段和解决办法">
+            
+            常用反爬手段和解决办法
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/python/">python</a> <a class="category-link" href="/categories/python/%E7%88%AC%E8%99%AB/">爬虫</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E5%8F%8D%E7%88%AC/" rel="tag">反爬</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/16</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h4 id="1、通过headers中的User-Agent字段来反爬"><a href="#1、通过headers中的User-Agent字段来反爬" class="headerlink" title="1、通过headers中的User-Agent字段来反爬"></a>1、通过headers中的User-Agent字段来反爬</h4><p>解决办法：随机选择User-Agent</p>
+<h4 id="2、通过referer字段或者是其他字段来反爬"><a href="#2、通过referer字段或者是其他字段来反爬" class="headerlink" title="2、通过referer字段或者是其他字段来反爬"></a>2、通过referer字段或者是其他字段来反爬</h4><p>解决办法：设置headers里的相应字段</p>
+<h4 id="3、通过cookie来反爬"><a href="#3、通过cookie来反爬" class="headerlink" title="3、通过cookie来反爬"></a>3、通过cookie来反爬</h4><ul>
+<li>方法1、session<ul>
+<li>实例化session（session具有的方法和requests一样）</li>
+<li>session发送请求post请求，对方服务器设置的cookie会保存在session</li>
+<li>session请求登录后能够访问的页面</li>
+</ul>
+</li>
+<li>方法2、cookie放在headers中<ul>
+<li>headers = {“Cookie”:”cookie字符串”}</li>
+</ul>
+</li>
+<li>方法3、cookie转化为字典放在请求方法中<ul>
+<li>requests.get(url,cookies={“name的值”:”values的值”})</li>
+</ul>
+</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>如果不需要登录时，需要携带cookie，也可以使用上述方法，而有时携带cookie反而容易被识别为爬虫</li>
+<li>如果cookie过期时间比较久或者过期前就可以拿到想要的全部数据，一般才会使用方法2和方法3</li>
+<li>如果需要登录，一般使用一个账户和密码多次请求是容易被识别为爬虫的，可以准备多个账号，通过一个程序获取账号对应的cookie，组成cookie池，爬虫程序使用这些cookie</li>
+<li>scrapy会在下一次请求时自动携带上一次的cookie，如果需要登录，也可以在请求时携带已登录的cookie，或者用scrapy.FormRequest或scrapy.FormRequest.from_response(form表单有action时)发送post请求</li>
+</ul>
+<h4 id="4、发送请求需要添加参数"><a href="#4、发送请求需要添加参数" class="headerlink" title="4、发送请求需要添加参数"></a>4、发送请求需要添加参数</h4><p>参数可能是发送其他url请求获取的，或者在页面响应中，此时需要我们用chrome的search file查找</p>
+<h4 id="5、通过js来反爬"><a href="#5、通过js来反爬" class="headerlink" title="5、通过js来反爬"></a>5、通过js来反爬</h4><ul>
+<li><p>通过js实现跳转来反爬</p>
+<ul>
+<li>在请求目标网站的时候，我们看到的似乎就请求了一个网站，然而实际上在成功请求目标网站之前，中间可能有通过js实现的跳转，我们肉眼不可见，这个时候可以通过点击perserve log按钮实现观察页面跳转情况</li>
+<li>在这些请求中，如果请求数量很多，一般来讲，只有那些response中带cookie字段的请求是有用的，意味着通过这个请求，对方服务器有设置cookie到本地</li>
+</ul>
+</li>
+<li><p>通过js生成了请求参数</p>
+<ul>
+<li>对应的需要分析js，观察参数生成的实现过程</li>
+<li>可以使用selenium模块解决</li>
+</ul>
+</li>
+<li><p>通过js实现了数据的加密</p>
+<ul>
+<li>对应的需要分析js，观察加密的实现过程</li>
+<li>可以使用selenium模块解决</li>
+</ul>
+</li>
+</ul>
+<h4 id="6、通过验证码来反爬"><a href="#6、通过验证码来反爬" class="headerlink" title="6、通过验证码来反爬"></a>6、通过验证码来反爬</h4><p>通过打码平台来识别验证码</p>
+<h4 id="7、基于用户行为反爬虫"><a href="#7、基于用户行为反爬虫" class="headerlink" title="7、基于用户行为反爬虫"></a>7、基于用户行为反爬虫</h4><ul>
+<li>还有一部分网站是通过检测用户行为，例如同一IP短时间内多次访问同一页面，或者同一账户短时间内多次进行相同操作。</li>
+<li>大多数网站都是前一种情况，对于这种情况，使用IP代理就可以解决。可以专门写一个爬虫，爬取网上公开的代理ip，检测后全部保存起来。</li>
+<li>对于第二种情况，可以在每次请求后随机间隔几秒再进行下一次请求。有些有逻辑漏洞的网站，可以通过请求几次，退出登录，重新登录，继续请求来绕过同一账号短时间内不能多次进行相同请求的限制。</li>
+</ul>
+<h4 id="8、通过自定义字体来反爬"><a href="#8、通过自定义字体来反爬" class="headerlink" title="8、通过自定义字体来反爬"></a>8、通过自定义字体来反爬</h4><p>切换到手机版</p>
+<h4 id="9、通过css来反爬"><a href="#9、通过css来反爬" class="headerlink" title="9、通过css来反爬"></a>9、通过css来反爬</h4><p>计算css的偏移</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2020/05/16/python/numpy%E5%92%8Cpandas/" class="pre-post btn btn-default" title='numpy和pandas'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            numpy和pandas</span>
+    </a>
+    
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、通过headers中的User-Agent字段来反爬"><span class="toc-text">1、通过headers中的User-Agent字段来反爬</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、通过referer字段或者是其他字段来反爬"><span class="toc-text">2、通过referer字段或者是其他字段来反爬</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、通过cookie来反爬"><span class="toc-text">3、通过cookie来反爬</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、发送请求需要添加参数"><span class="toc-text">4、发送请求需要添加参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、通过js来反爬"><span class="toc-text">5、通过js来反爬</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、通过验证码来反爬"><span class="toc-text">6、通过验证码来反爬</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、基于用户行为反爬虫"><span class="toc-text">7、基于用户行为反爬虫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、通过自定义字体来反爬"><span class="toc-text">8、通过自定义字体来反爬</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、通过css来反爬"><span class="toc-text">9、通过css来反爬</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
