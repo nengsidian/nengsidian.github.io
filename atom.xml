@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-15T16:36:03.326Z</updated>
+  <updated>2020-05-16T01:05:56.253Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>pycharm快捷键大全</title>
     <link href="http://yoursite.com/2020/05/16/pycharm%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/"/>
     <id>http://yoursite.com/2020/05/16/pycharm%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/</id>
-    <published>2020-05-15T16:36:03.326Z</published>
-    <updated>2020-05-15T16:36:03.326Z</updated>
+    <published>2020-05-16T01:05:57.000Z</published>
+    <updated>2020-05-16T01:05:56.253Z</updated>
     
     <content type="html"><![CDATA[<p>#pycharm快捷键大全</p><h3 id="1、编辑（Editing）"><a href="#1、编辑（Editing）" class="headerlink" title="1、编辑（Editing）"></a>1、编辑（Editing）</h3><p>Ctrl + Space 基本的代码完成（类、方法、属性）</p><p>Ctrl + Alt + Space 快速导入任意类</p><p>Ctrl + Shift + Enter 语句完成</p><p>Ctrl + P 参数信息（在方法中调用参数）</p><p>Ctrl + Q 快速查看文档</p><p>F1 Web帮助文档主页</p><p>Shift + F1 选中对象的Web帮助文档</p><p>Ctrl + 悬浮/单击鼠标左键 简介/进入代码定义</p><p>Ctrl + Z 撤销上次操作</p><p>Ctrl + Shift + Z 重做,恢复上次的撤销</p><p>Ctrl + F1 显示错误描述或警告信息</p><p>Alt + Insert 自动生成代码</p><p>Ctrl + O 重新方法</p><p>Ctrl + Alt + T 选中</p><p>Ctrl + / 行注释/取消注释</p><p>Ctrl + Shift + / 块注释</p><p>Ctrl + W 选中增加的代码块</p><p>Ctrl + Shift + W 回到之前状态</p><p>Ctrl + Shift + ]/[ 选定代码块结束、开始</p><p>Alt + Enter 快速修正</p><p>Ctrl + Alt + L 代码格式化</p><p>Ctrl + Alt + O 优化导入</p><p>Ctrl + Alt + I 自动缩进</p><p>Tab / Shift + Tab 缩进、不缩进当前行</p><p>Ctrl+X/Shift+Delete 剪切当前行或选定的代码块到剪贴板</p><p>Ctrl+C/Ctrl+Insert 复制当前行或选定的代码块到剪贴板</p><p>Ctrl+V/Shift+Insert 从剪贴板粘贴</p><p>Ctrl + Shift + V 从最近的缓冲区粘贴</p><p>Ctrl + D 复制选定的区域或行</p><p>Ctrl + Y 删除选定的行</p><p>Ctrl + Shift + J 添加智能线</p><p>Ctrl + Enter 智能线切割</p><p>Shift + Enter 另起一行</p><p>Ctrl + Shift + U 在选定的区域或代码块间切换</p><p>Ctrl + Delete 删除到字符结束</p><p>Ctrl + Backspace 删除到字符开始</p><p>Ctrl + Numpad+/- 展开/折叠代码块（当前位置：函数、注释等）</p><p>Ctrl + Shift + Numpad+/- 展开/折叠所有代码块</p><p>Ctrl + F4 关闭运行的选项卡</p><h3 id="2、查找-替换-Search-Replace"><a href="#2、查找-替换-Search-Replace" class="headerlink" title="2、查找/替换(Search/Replace)"></a>2、查找/替换(Search/Replace)</h3><p>F3 下一个</p><p>Shift + F3 前一个</p><p>Ctrl + R 替换</p><p>Ctrl + Shift + R 全局替换</p><p>Ctrl + Shift + F 全局查找（可以在整个项目中查找某个字符串什么的，如查找某个函数名）</p><p>连续敲击两次Shift键 查找函数</p><h3 id="3、运行-Running"><a href="#3、运行-Running" class="headerlink" title="3、运行(Running)"></a>3、运行(Running)</h3><p>Alt + Shift + F10 运行模式配置</p><p>Alt + Shift + F9 调试模式配置</p><p>Shift + F10 运行</p><p>Shift + F9 调试</p><p>Ctrl + Shift + F10 运行编辑器配置</p><p>Ctrl + Alt + R 运行manage.py任务</p><h3 id="4、调试-Debugging"><a href="#4、调试-Debugging" class="headerlink" title="4、调试(Debugging)"></a>4、调试(Debugging)</h3><p>F8 跳过</p><p>F7 进入</p><p>Shift + F8 退出</p><p>Alt + F9 运行游标</p><p>Alt + F8 验证表达式</p><p>Ctrl + Alt + F8 快速验证表达式</p><p>F9 恢复程序</p><p>Ctrl + F8 断点开关</p><p>Ctrl + Shift + F8 查看断点</p><h3 id="5、导航-Navigation"><a href="#5、导航-Navigation" class="headerlink" title="5、导航(Navigation)"></a>5、导航(Navigation)</h3><p>Ctrl + N 跳转到类</p><p>Ctrl + Shift + N 跳转到符号</p><p>Alt + Right/Left 跳转到下一个、前一个编辑的选项卡（代码文件）</p><p>Alt + Up/Down跳转到上一个、下一个方法</p><p>F12 回到先前的工具窗口</p><p>Esc 从工具窗口回到编辑窗口</p><p>Shift + Esc 隐藏运行的、最近运行的窗口</p><p>Ctrl + Shift + F4 关闭主动运行的选项卡</p><p>Ctrl + G 查看当前行号、字符号</p><p>Ctrl + E 在当前文件弹出最近使用的文件列表</p><p>Ctrl+Alt+Left/Right 后退、前进</p><p>Ctrl+Shift+Backspace 导航到最近编辑区域（差不多就是返回上次编辑的位置）</p><p>Alt + F1 查找当前文件或标识</p><p>Ctrl+B / Ctrl+Click 跳转到声明</p><p>Ctrl + Alt + B 跳转到实现</p><p>Ctrl + Shift + I 查看快速定义</p><p>Ctrl + Shift + B 跳转到类型声明</p><p>Ctrl + U 跳转到父方法、父类</p><p>Alt + Up/Down 跳转到上一个、下一个方法</p><p>Ctrl + ]/[ 跳转到代码块结束、开始</p><p>Ctrl + F12 弹出文件结构</p><p>Ctrl + H 类型层次结构</p><p>Ctrl + Shift + H 方法层次结构</p><p>Ctrl + Alt + H 调用层次结构</p><p>F2 / Shift + F2 下一条、前一条高亮的错误</p><p>F4 / Ctrl + Enter 编辑资源、查看资源</p><p>Alt + Home显示导航条F11 书签开关</p><p>Ctrl + Shift + F11 书签助记开关</p><p>Ctrl + #[0-9] 跳转到标识的书签</p><p>Shift + F11 显示书签</p><h3 id="6、搜索相关-Usage-Search"><a href="#6、搜索相关-Usage-Search" class="headerlink" title="6、搜索相关(Usage Search)"></a>6、搜索相关(Usage Search)</h3><p>Alt + F7/Ctrl + F7 文件中查询用法</p><p>Ctrl + Shift + F7 文件中用法高亮显示</p><p>Ctrl + Alt + F7 显示用法</p><h3 id="7、重构-Refactoring"><a href="#7、重构-Refactoring" class="headerlink" title="7、重构(Refactoring)"></a>7、重构(Refactoring)</h3><p>Alt + Delete 安全删除</p><p>Shift + F6 重命名文件</p><p>Ctrl + F6 更改签名</p><p>Ctrl + Alt + N 内联</p><p>Ctrl + Alt + M 提取方法</p><p>Ctrl + Alt + V 提取属性</p><p>Ctrl + Alt + F 提取字段</p><p>Ctrl + Alt + C 提取常量</p><p>Ctrl + Alt + P 提取参数</p><h3 id="8、控制VCS-Local-History"><a href="#8、控制VCS-Local-History" class="headerlink" title="8、控制VCS/Local History"></a>8、控制VCS/Local History</h3><p>Ctrl + K 提交项目</p><p>Ctrl + T 更新项目</p><p>Alt + Shift + C 查看最近的变化</p><p>Alt + BackQuote(‘) VCS快速弹出</p><h3 id="9、模版-Live-Templates"><a href="#9、模版-Live-Templates" class="headerlink" title="9、模版(Live Templates)"></a>9、模版(Live Templates)</h3><p>Ctrl + Alt + J 当前行使用模版</p><p>Ctrl + J 插入模版</p><h3 id="10、基本-General"><a href="#10、基本-General" class="headerlink" title="10、基本(General)"></a>10、基本(General)</h3><p>Alt + #[0-9] 打开相应的工具窗口</p><p>Ctrl + Alt + Y 同步</p><p>Ctrl + Shift + F12 最大化编辑开关</p><p>Alt + Shift + F 添加到最喜欢</p><p>Alt + Shift + I 根据配置检查当前文件</p><p>Ctrl + BackQuote(‘) 快速切换当前计划</p><p>Ctrl + Alt + S 打开设置页</p><p>Ctrl + Shift + A 查找编辑器里所有的动作</p><p>Ctrl + Tab 在窗口间进行切换</p>]]></content>
     
@@ -36,6 +36,12 @@
     </summary>
     
     
+      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="pycharm" scheme="http://yoursite.com/tags/pycharm/"/>
+    
+      <category term="快捷键" scheme="http://yoursite.com/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     
   </entry>
   
