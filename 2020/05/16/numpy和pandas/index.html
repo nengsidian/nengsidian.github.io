@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="python,nump,pandas" />
+<meta name="keywords" content="" />
 
 
 <meta name="description" content="numpy创建数组12345678a = np.array([1,2,3,4,5])np.arange(12).reshape(3, 4)# 查看数组的类型type(a)# 查看数据的类型a.d..." />
@@ -33,7 +33,7 @@
 
 <title>
     
-    nump和pandas |
+    numpy和pandas |
     
     李恒的博客
 </title>
@@ -145,24 +145,22 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="nump和pandas">
+        <h1 id="numpy和pandas">
             
-            nump和pandas
+            numpy和pandas
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/python/">python</a>
+        
     </span>
     
     
     <span class="fa-wrap">
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
-            
-            <a class="tag-link" href="/tags/nump/" rel="tag">nump</a> <a class="tag-link" href="/tags/pandas/" rel="tag">pandas</a> <a class="tag-link" href="/tags/python/" rel="tag">python</a>
             
         </span>
     </span>
@@ -293,7 +291,7 @@
 <li>创建一个全1的数组：np.ones((3,4))</li>
 <li>创建一个对角线为1的正方形数组（方阵）：np,eye(3)</li>
 </ol>
-<h4 id="生成随机数"><a href="#生成随机数" class="headerlink" title="生成随机数"></a>生成随机数</h4><p><img src="/Users/liheng/info/MD/numpy%E5%92%8Cpandas/numpy%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0.png" alt></p>
+<h4 id="生成随机数"><a href="#生成随机数" class="headerlink" title="生成随机数"></a>生成随机数</h4><p><img src="/2020/05/16/numpy%E5%92%8Cpandas/numpy%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0.png" alt></p>
 <h4 id="numpy的注意点copy和view"><a href="#numpy的注意点copy和view" class="headerlink" title="numpy的注意点copy和view"></a>numpy的注意点copy和view</h4><ol>
 <li>a=b完全不复制，a和b相互影响</li>
 <li>a=b[:]，视图的操作，一种切片，会创建新的对象a，但是a的数据完全由b保管，他们两个的数据变化是一致的。</li>
@@ -334,7 +332,7 @@
 
 <h4 id="DataFrame之布尔索引"><a href="#DataFrame之布尔索引" class="headerlink" title="DataFrame之布尔索引"></a>DataFrame之布尔索引</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到使用次数超过800的狗的名字</span></span><br><span class="line">df[df[<span class="string">"Count_AnimalName"</span>]&gt;<span class="number">800</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到所有使用次数超过700并且名字的字符串的长度大于4的狗的名字</span></span><br><span class="line">df[(df[<span class="string">"Row_Labels"</span>].str.len()&gt;<span class="number">4</span>)&amp;(df[<span class="string">"Count_AnimalName"</span>]&gt;<span class="number">700</span>)]</span><br><span class="line"><span class="comment"># &amp;符号表示：且</span></span><br><span class="line"><span class="comment"># |符号表示：或</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="pandas之字符串方法"><a href="#pandas之字符串方法" class="headerlink" title="pandas之字符串方法"></a>pandas之字符串方法</h4><p><img src="/Users/liheng/info/MD/numpy%E5%92%8Cpandas/pandas%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95.png" alt></p>
+<h4 id="pandas之字符串方法"><a href="#pandas之字符串方法" class="headerlink" title="pandas之字符串方法"></a>pandas之字符串方法</h4><p><img src="/2020/05/16/numpy%E5%92%8Cpandas/pandas%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95.png" alt></p>
 <h4 id="缺失数据的处理"><a href="#缺失数据的处理" class="headerlink" title="缺失数据的处理"></a>缺失数据的处理</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断数据是否为NaN</span></span><br><span class="line">pd.isnull(df)  <span class="comment"># 是NaN</span></span><br><span class="line">pd.notnull(df)  <span class="comment"># 不是NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 处理方式1：删除NaN所在的行列</span></span><br><span class="line">t.dropna(axis=<span class="number">0</span>,how=<span class="string">'any'</span>,inplace=<span class="literal">False</span>)</span><br><span class="line"><span class="comment"># 填充数据</span></span><br><span class="line">t.fillna(t.mean())</span><br><span class="line">t.fillna(t.median())</span><br><span class="line">t.fillna(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
 <p>处理为0的数据：t[t==0]=np.nan</p>
@@ -343,9 +341,9 @@
 <h4 id="pandas常用统计方法"><a href="#pandas常用统计方法" class="headerlink" title="pandas常用统计方法"></a>pandas常用统计方法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 评分的平均分</span></span><br><span class="line">rating_mean = df[<span class="string">"Rating"</span>].mean()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导演的人数</span></span><br><span class="line">temp_list = df[<span class="string">"Actors"</span>].str.split(<span class="string">","</span>).tolist()</span><br><span class="line">nums = set([i <span class="keyword">for</span> j <span class="keyword">in</span> temp_list <span class="keyword">for</span> i <span class="keyword">in</span> j])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 电影市场的最大最小值</span></span><br><span class="line">max_runtime = df[<span class="string">"Runtime(Minutes)"</span>].max()</span><br><span class="line">max_runtime_index = df[<span class="string">"Runtime(Minutes)"</span>].argmax()</span><br><span class="line">min_runtime = df[<span class="string">"Runtime(Minutes)"</span>].min()</span><br><span class="line">min_runtime_index = df[<span class="string">"Runtime(Minutes)"</span>].argmin()</span><br><span class="line">runtime_median = df[<span class="string">"Runtime(Minutes)"</span>].median()</span><br></pre></td></tr></table></figure>
 
 <h4 id="数据合并之join、merge"><a href="#数据合并之join、merge" class="headerlink" title="数据合并之join、merge"></a>数据合并之join、merge</h4><p>join：默认情况下他是把行索引相同的数据合并到一起</p>
-<p><img src="/Users/liheng/info/MD/numpy%E5%92%8Cpandas/join.png" alt></p>
+<p><img src="/2020/05/16/numpy%E5%92%8Cpandas/join.png" alt></p>
 <p>merge:按照指定的列把数据按照一定的方式合并到一起</p>
-<p><img src="/Users/liheng/info/MD/numpy%E5%92%8Cpandas/merge.png" alt></p>
+<p><img src="/2020/05/16/numpy%E5%92%8Cpandas/merge.png" alt></p>
 <p>默认的合并方式inner：并集</p>
 <p>outer：交集，NaN补全</p>
 <p>left：左边为准，NaN补全</p>
@@ -383,9 +381,9 @@
 <h4 id="pandas中的时间序列"><a href="#pandas中的时间序列" class="headerlink" title="pandas中的时间序列"></a>pandas中的时间序列</h4><h5 id="时间序列的生成"><a href="#时间序列的生成" class="headerlink" title="时间序列的生成"></a>时间序列的生成</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.date_range(start=<span class="literal">None</span>, end=<span class="literal">None</span>, periods=<span class="literal">None</span>, freq=<span class="string">'D'</span>)</span><br></pre></td></tr></table></figure>
 
 <p>start和end以及freq配合能够生成start和end范围内以频率freq的一组时间索引<br>start和periods以及freq配合能够生成从start开始的频率为freq的periods个时间索引</p>
-<p><img src="/Users/liheng/info/MD/numpy%E5%92%8Cpandas/%E7%94%9F%E6%88%90%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97.png" alt></p>
+<p><img src="/2020/05/16/numpy%E5%92%8Cpandas/%E7%94%9F%E6%88%90%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97.png" alt></p>
 <p>关于频率的更多缩写</p>
-<p><img src="/Users/liheng/info/MD/numpy%E5%92%8Cpandas/%E5%85%B3%E4%BA%8E%E9%A2%91%E7%8E%87%E7%9A%84%E6%9B%B4%E5%A4%9A%E7%BC%A9%E5%86%99.png" alt></p>
+<p><img src="/2020/05/16/numpy%E5%92%8Cpandas/%E5%85%B3%E4%BA%8E%E9%A2%91%E7%8E%87%E7%9A%84%E6%9B%B4%E5%A4%9A%E7%BC%A9%E5%86%99.png" alt></p>
 <h5 id="在DataFrame中使用时间序列"><a href="#在DataFrame中使用时间序列" class="headerlink" title="在DataFrame中使用时间序列"></a>在DataFrame中使用时间序列</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index=pd.date_range(<span class="string">"20170101"</span>,periods=<span class="number">10</span>)</span><br><span class="line">df = pd.DataFrame(np.random.rand(<span class="number">10</span>),index=index)</span><br></pre></td></tr></table></figure>
 
 <p>可以使用pandas提供的方法把时间字符串转化为时间序列</p>
@@ -393,7 +391,7 @@
 
 <h5 id="pandas重采样"><a href="#pandas重采样" class="headerlink" title="pandas重采样"></a>pandas重采样</h5><p>重采样：指的是将时间序列从一个频率转化为另一个频率进行处理的过程，将高频率数据转化为低频率数据为降采样，低频率转化为高频率为升采样。</p>
 <p>pandas提供了一个resample的方法来帮助我们实现频率转化</p>
-<p><img src="/Users/liheng/info/MD/numpy%E5%92%8Cpandas/%E9%87%8D%E9%87%87%E6%A0%B7.png" alt></p>
+<p><img src="/2020/05/16/numpy%E5%92%8Cpandas/%E9%87%8D%E9%87%87%E6%A0%B7.png" alt></p>
 <h5 id="Periodlndex"><a href="#Periodlndex" class="headerlink" title="Periodlndex"></a>Periodlndex</h5><p>之前所学习的DatetimeIndex可以理解为时间戳<br>那么现在我们要学习的PeriodIndex可以理解为时间段</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">periods = pd.PeriodIndex(year=data[<span class="string">"year"</span>],month=data[<span class="string">"month"</span>],day=data[<span class="string">"day"</span>],hour=data[<span class="string">"hour"</span>],freq=<span class="string">"H"</span>)</span><br></pre></td></tr></table></figure>
 
