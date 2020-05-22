@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="李恒的博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="摄像头" />
+
+
+<meta name="description" content="cv2模块安装1cv2 pip install opencv-python -i https:&#x2F;&#x2F;pypi.douban.com&#x2F;simple&#x2F;
+一个简单..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    使用cv2模块调用摄像头 |
+    
+    李恒的博客
+</title>
+
+<link rel="alternate" href="/atom.xml" title="李恒的博客" type="application/atom+xml">
+
+
+<link rel="icon" href="./favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='liheng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        李恒的博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/python/"><i class="fa "></i>
+                                python</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/数据库/"><i class="fa "></i>
+                                数据库</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/其他/"><i class="fa "></i>
+                                其他</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="使用cv2模块调用摄像头">
+            
+            使用cv2模块调用摄像头
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/python/">python</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4/" rel="tag">摄像头</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/22</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h4 id="cv2模块安装"><a href="#cv2模块安装" class="headerlink" title="cv2模块安装"></a>cv2模块安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2 pip install opencv-python -i https:&#x2F;&#x2F;pypi.douban.com&#x2F;simple&#x2F;</span><br></pre></td></tr></table></figure>
+<h4 id="一个简单应用"><a href="#一个简单应用" class="headerlink" title="一个简单应用"></a>一个简单应用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import cv2</span><br><span class="line"></span><br><span class="line">cap &#x3D; cv2.VideoCapture(0) # 0表示使用当前摄像头</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">定义视频编码器</span><br><span class="line">这里有必要提一下fourcc</span><br><span class="line">FourCC全称Four-Character Codes，代表四字符代码 (four character code), 它是一个32位的标示符，其实就是typedef unsigned int FOURCC;</span><br><span class="line">是一种独立标示视频数据流格式的四字符代码。</span><br><span class="line">因此cv2.VideoWriter_fourcc()函数的作用是输入四个字符代码即可得到对应的视频编码器。</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">fourcc &#x3D; cv2.VideoWriter_fourcc(*&#39;XVID&#39;)  # 使用XVID编码器</span><br><span class="line">out &#x3D; cv2.VideoWriter(&#39;output.avi&#39;, fourcc, 20.0, (640, 480))  # 出分别是：保存文件名、编码器、帧率、视频宽高</span><br><span class="line"></span><br><span class="line">while cap.isOpened():</span><br><span class="line">    ret, frame &#x3D; cap.read()</span><br><span class="line">    if ret:</span><br><span class="line">        # 保存录像结果</span><br><span class="line">        out.write(frame)</span><br><span class="line">        cv2.imshow(&#39;frame&#39;, frame)</span><br><span class="line">        if cv2.waitKey(1) &amp; 0xFF &#x3D;&#x3D; ord(&#39;q&#39;):</span><br><span class="line">            break</span><br><span class="line">    else:</span><br><span class="line">        break</span><br><span class="line"></span><br><span class="line"># 释放内存</span><br><span class="line">cap.release()</span><br><span class="line">out.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<h4 id="浏览器上显示摄像头拍摄内容（支持多个网页同时打开）"><a href="#浏览器上显示摄像头拍摄内容（支持多个网页同时打开）" class="headerlink" title="浏览器上显示摄像头拍摄内容（支持多个网页同时打开）"></a>浏览器上显示摄像头拍摄内容（支持多个网页同时打开）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">import os, time, struct, threading</span><br><span class="line">from cv2 import cv2</span><br><span class="line">from http.server import HTTPServer, BaseHTTPRequestHandler</span><br><span class="line">from socketserver import TCPServer, ThreadingTCPServer</span><br><span class="line">from threading import Thread, RLock</span><br><span class="line">from select import select</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class JpegStreamer(Thread):</span><br><span class="line">    def __init__(self, camera):</span><br><span class="line">        Thread.__init__(self)</span><br><span class="line">        self.cap &#x3D; cv2.VideoCapture(camera)</span><br><span class="line">        self.lock &#x3D; RLock()</span><br><span class="line">        self.pipes &#x3D; &#123;&#125;</span><br><span class="line"></span><br><span class="line">    def register(self):</span><br><span class="line">        pr, pw &#x3D; os.pipe()</span><br><span class="line">        self.lock.acquire()</span><br><span class="line">        self.pipes[pr] &#x3D; pw</span><br><span class="line">        self.lock.release()</span><br><span class="line">        return pr</span><br><span class="line"></span><br><span class="line">    def unregister(self, pr):</span><br><span class="line">        self.lock.acquire()</span><br><span class="line">        pw &#x3D; self.pipes.pop(pr)</span><br><span class="line">        self.lock.release()</span><br><span class="line">        os.close(pr)</span><br><span class="line">        os.close(pw)</span><br><span class="line"></span><br><span class="line">    def capture(self):</span><br><span class="line">        cap &#x3D; self.cap</span><br><span class="line">        while cap.isOpened():</span><br><span class="line">            ret, frame &#x3D; cap.read()  # 读取视频的某帧</span><br><span class="line">            if ret:</span><br><span class="line">                # ret, data &#x3D; cv2.imencode(&#39;.jpg&#39;, frame)</span><br><span class="line">                # 函数是将图片格式转换(编码)成流数据，赋值到内存缓存中&#39;,.jpg&#39;表示把当前图片img按照jpg格式编码，按照不同格式编码的结果不一样</span><br><span class="line">                # (cv2.IMWRITE_JPEG_QUALITY, 40)是设置图片品质为40</span><br><span class="line">                ret, data &#x3D; cv2.imencode(&#39;.jpg&#39;, frame, (cv2.IMWRITE_JPEG_QUALITY, 40))</span><br><span class="line">                yield data.tostring()</span><br><span class="line"></span><br><span class="line">    def send(self, frame):</span><br><span class="line">        n &#x3D; struct.pack(&#39;l&#39;, len(frame))</span><br><span class="line">        self.lock.acquire()</span><br><span class="line">        if len(self.pipes):</span><br><span class="line">            _, pipes, _ &#x3D; select([], iter(self.pipes.values()), [], 1)</span><br><span class="line">            for pipe in pipes:</span><br><span class="line">                os.write(pipe, n)</span><br><span class="line">                os.write(pipe, frame)</span><br><span class="line">        self.lock.release()</span><br><span class="line"></span><br><span class="line">    def run(self):</span><br><span class="line">        for frame in self.capture():</span><br><span class="line">            self.send(frame)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class JpegRetriever(object):</span><br><span class="line">    def __init__(self, streamer):</span><br><span class="line">        self.streamer &#x3D; streamer</span><br><span class="line">        self.local &#x3D; threading.local()</span><br><span class="line"></span><br><span class="line">    def retrieve(self):</span><br><span class="line">        while True:</span><br><span class="line">            ns &#x3D; os.read(self.local.pipe, 8)</span><br><span class="line">            n &#x3D; struct.unpack(&#39;l&#39;, ns)[0]</span><br><span class="line">            data &#x3D; os.read(self.local.pipe, n)</span><br><span class="line">            yield data</span><br><span class="line"></span><br><span class="line">    def __enter__(self):</span><br><span class="line">        if hasattr(self.local, &#39;pipe&#39;):</span><br><span class="line">            raise RuntimeError()</span><br><span class="line"></span><br><span class="line">        self.local.pipe &#x3D; streamer.register()</span><br><span class="line">        return self.retrieve()</span><br><span class="line"></span><br><span class="line">    def __exit__(self, *args):</span><br><span class="line">        self.streamer.unregister(self.local.pipe)</span><br><span class="line">        del self.local.pipe</span><br><span class="line">        return True</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Handler(BaseHTTPRequestHandler):</span><br><span class="line">    retriever &#x3D; None</span><br><span class="line"></span><br><span class="line">    @staticmethod</span><br><span class="line">    def setJpegRetriever(retriever):</span><br><span class="line">        Handler.retriever &#x3D; retriever</span><br><span class="line"></span><br><span class="line">    def do_GET(self):</span><br><span class="line">        if self.retriever is None:</span><br><span class="line">            raise RuntimeError(&#39;no retriver&#39;)</span><br><span class="line"></span><br><span class="line">        if self.path !&#x3D; &#39;&#x2F;&#39;:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        self.send_response(200)</span><br><span class="line">        self.send_header(&#39;Content-type&#39;, &#39;multipart&#x2F;x-mixed-replace;boundary&#x3D;abcde&#39;)</span><br><span class="line">        self.end_headers()</span><br><span class="line"></span><br><span class="line">        with self.retriever as frames:</span><br><span class="line">            for frame in frames:</span><br><span class="line">                self.send_frame(frame)</span><br><span class="line"></span><br><span class="line">    def send_frame(self, frame):</span><br><span class="line">        s &#x3D; &#39;--abcde\r\n&#39;</span><br><span class="line">        s +&#x3D; &#39;Content-Type: image&#x2F;jpeg\r\n&#39;</span><br><span class="line">        s +&#x3D; &#39;Content-Length: %s\r\n\r\n&#39; % len(frame)</span><br><span class="line">        self.wfile.write(s.encode(&#39;ascii&#39;))</span><br><span class="line">        self.wfile.write(frame)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    streamer &#x3D; JpegStreamer(0)</span><br><span class="line">    streamer.start()</span><br><span class="line"></span><br><span class="line">    retriever &#x3D; JpegRetriever(streamer)</span><br><span class="line">    Handler.setJpegRetriever(retriever)</span><br><span class="line"></span><br><span class="line">    print(&#39;Start server...&#39;)</span><br><span class="line">    httpd &#x3D; ThreadingTCPServer((&#39;&#39;, 9000), Handler)</span><br><span class="line">    httpd.serve_forever()</span><br></pre></td></tr></table></figure>
+
+<h4 id="上面内容的精简实现"><a href="#上面内容的精简实现" class="headerlink" title="上面内容的精简实现"></a>上面内容的精简实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">from http.server import HTTPServer, BaseHTTPRequestHandler</span><br><span class="line">from socketserver import TCPServer, ThreadingTCPServer</span><br><span class="line">from cv2 import cv2</span><br><span class="line">from threading import Thread, RLock</span><br><span class="line">from select import select</span><br><span class="line">import os</span><br><span class="line">import os, time, struct, threading</span><br><span class="line">from queue import Queue</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class JpegStreamer(Thread):</span><br><span class="line">    def __init__(self, file_path, q):</span><br><span class="line">        Thread.__init__(self)</span><br><span class="line">        self.cap &#x3D; cv2.VideoCapture(0)</span><br><span class="line"></span><br><span class="line">    def capture(self):</span><br><span class="line">        cap &#x3D; self.cap</span><br><span class="line">        while cap.isOpened():</span><br><span class="line">            ret, frame &#x3D; cap.read()  # 读取视频的某帧</span><br><span class="line">            if ret:</span><br><span class="line">                # ret, data &#x3D; cv2.imencode(&#39;.jpg&#39;, frame)</span><br><span class="line">                # 函数是将图片格式转换(编码)成流数据，赋值到内存缓存中&#39;,.jpg&#39;表示把当前图片img按照jpg格式编码，按照不同格式编码的结果不一样</span><br><span class="line">                # (cv2.IMWRITE_JPEG_QUALITY, 40)是设置图片品质为40</span><br><span class="line">                ret, data &#x3D; cv2.imencode(&#39;.jpg&#39;, frame, (cv2.IMWRITE_JPEG_QUALITY, 40))</span><br><span class="line">                yield data.tostring()</span><br><span class="line"></span><br><span class="line">    def run(self):</span><br><span class="line">        for frame in self.capture():</span><br><span class="line">            q.put(frame)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Handler(BaseHTTPRequestHandler):</span><br><span class="line">    q &#x3D; None</span><br><span class="line">    def do_GET(self):</span><br><span class="line">        if self.path !&#x3D; &#39;&#x2F;&#39;:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        self.send_response(200)</span><br><span class="line">        self.send_header(&#39;Content-type&#39;, &#39;multipart&#x2F;x-mixed-replace;boundary&#x3D;abcde&#39;)</span><br><span class="line">        self.end_headers()</span><br><span class="line"></span><br><span class="line">        while True:</span><br><span class="line">            frame &#x3D; q.get()</span><br><span class="line">            self.send_frame(frame)</span><br><span class="line"></span><br><span class="line">    def send_frame(self, frame):</span><br><span class="line">        s &#x3D; &#39;--abcde\r\n&#39;</span><br><span class="line">        s +&#x3D; &#39;Content-Type: image&#x2F;jpeg\r\n&#39;</span><br><span class="line">        s +&#x3D; &#39;Content-Length: %s\r\n\r\n&#39; % len(frame)</span><br><span class="line">        self.wfile.write(s.encode(&#39;ascii&#39;))</span><br><span class="line">        self.wfile.write(frame)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    file_path &#x3D; &quot;http:&#x2F;&#x2F;10.102.100.16:50070&#x2F;webhdfs&#x2F;v1&#x2F;test&#x2F;input&#x2F;3386610.mp4?op&#x3D;OPEN&quot;</span><br><span class="line">    q &#x3D; Queue()</span><br><span class="line">    streamer &#x3D; JpegStreamer(file_path, q)</span><br><span class="line">    streamer.start()</span><br><span class="line"></span><br><span class="line">    print(&#39;Start server...&#39;)</span><br><span class="line">    Handler.q &#x3D; q</span><br><span class="line">    httpd &#x3D; ThreadingTCPServer((&#39;&#39;, 9001), Handler)</span><br><span class="line">    httpd.serve_forever()</span><br></pre></td></tr></table></figure>
+
+<h4 id="django上简易实现，（不支持浏览器多开，如果要多开，看django调用摄像头改进）"><a href="#django上简易实现，（不支持浏览器多开，如果要多开，看django调用摄像头改进）" class="headerlink" title="django上简易实现，（不支持浏览器多开，如果要多开，看django调用摄像头改进）"></a>django上简易实现，（不支持浏览器多开，如果要多开，看django调用摄像头改进）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class CameraDemoView(APIView):</span><br><span class="line">    def get(self, request):</span><br><span class="line">        return StreamingHttpResponse(gen(), content_type&#x3D;&#39;multipart&#x2F;x-mixed-replace; boundary&#x3D;frame&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def gen():</span><br><span class="line">    cap &#x3D; cv2.VideoCapture(0)</span><br><span class="line">    while cap.isOpened():</span><br><span class="line">        ret, frame &#x3D; cap.read()  # 读取视频的某帧</span><br><span class="line">        if ret:</span><br><span class="line">            # ret, data &#x3D; cv2.imencode(&#39;.jpg&#39;, frame)</span><br><span class="line">            # 函数是将图片格式转换(编码)成流数据，赋值到内存缓存中&#39;,.jpg&#39;表示把当前图片img按照jpg格式编码，按照不同格式编码的结果不一样</span><br><span class="line">            # (cv2.IMWRITE_JPEG_QUALITY, 40)是设置图片品质为40</span><br><span class="line">            ret, data &#x3D; cv2.imencode(&#39;.jpg&#39;, frame, (cv2.IMWRITE_JPEG_QUALITY, 40))</span><br><span class="line">            yield (b&#39;--frame\r\n&#39;b&#39;Content-Type: image&#x2F;jpeg\r\n\r\n&#39; + data.tostring() + b&#39;\r\n&#39;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="django调用摄像头改进"><a href="#django调用摄像头改进" class="headerlink" title="django调用摄像头改进"></a>django调用摄像头改进</h4><p>把摄像头的数据存入redis，然后从redis调用摄像头数据，支持浏览器多开，但是开启和关闭摄像头只支持单进程情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">from utils.camera_utils import Camera</span><br><span class="line"></span><br><span class="line">CAMERA &#x3D; None</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class CameraDemoView(APIView):</span><br><span class="line">    def get(self, request):</span><br><span class="line">        return StreamingHttpResponse(gen(), content_type&#x3D;&#39;multipart&#x2F;x-mixed-replace; boundary&#x3D;frame&#39;)</span><br><span class="line"></span><br><span class="line">    def post(self, request):</span><br><span class="line">        camera &#x3D; Camera()</span><br><span class="line">        global CAMERA</span><br><span class="line">        CAMERA &#x3D; camera</span><br><span class="line">        redis_conn &#x3D; get_redis_connection(&quot;save_status&quot;)</span><br><span class="line">        ret &#x3D; redis_conn.get(&quot;camera_is_open&quot;)</span><br><span class="line">        print(&quot;ret&quot;, ret)</span><br><span class="line">        if not ret:</span><br><span class="line">            redis_conn.set(&quot;camera_is_open&quot;, True)</span><br><span class="line">            t &#x3D; threading.Thread(target&#x3D;camera.get_data)</span><br><span class="line">            t.start()</span><br><span class="line">            return Response(&#123;&quot;message&quot;: &quot;摄像头启动成功&quot;&#125;)</span><br><span class="line">        else:</span><br><span class="line">            return Response(&#123;&quot;message&quot;: &quot;摄像头已启动，无需再次启动&quot;&#125;)</span><br><span class="line"></span><br><span class="line">    def delete(self, request):</span><br><span class="line">        global CAMERA</span><br><span class="line">        redis_conn &#x3D; get_redis_connection(&quot;save_status&quot;)</span><br><span class="line">        redis_conn.delete(&quot;camera_is_open&quot;)</span><br><span class="line">        try:</span><br><span class="line">            CAMERA.close_camera()</span><br><span class="line">        except Exception as e:</span><br><span class="line">            logger.error(e)</span><br><span class="line">            return Response(&#123;&quot;message&quot;: &quot;摄像头未开启&quot;&#125;)</span><br><span class="line">        return Response(&#123;&quot;message&quot;: &quot;摄像头已关闭&quot;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def gen():</span><br><span class="line">    while True:</span><br><span class="line">        redis_conn &#x3D; get_redis_connection(&quot;save_status&quot;)</span><br><span class="line">        camera_data &#x3D; redis_conn.get(&quot;camera&quot;)</span><br><span class="line">        yield camera_data</span><br></pre></td></tr></table></figure>
+<p>camera_utils.py文件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from django_redis import get_redis_connection</span><br><span class="line">from cv2 import cv2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Camera(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.cap &#x3D; cv2.VideoCapture(0)</span><br><span class="line">        self.redis_conn &#x3D; get_redis_connection(&quot;save_status&quot;)</span><br><span class="line"></span><br><span class="line">    def get_data(self):</span><br><span class="line">        while self.cap.isOpened():</span><br><span class="line">            ret, frame &#x3D; self.cap.read()</span><br><span class="line">            if ret:</span><br><span class="line">                ret, data &#x3D; cv2.imencode(&#39;.jpg&#39;, frame, (cv2.IMWRITE_JPEG_QUALITY, 40))</span><br><span class="line">                camera_data &#x3D; b&#39;--frame\r\n&#39;b&#39;Content-Type: image&#x2F;jpeg\r\n\r\n&#39; + data.tostring() + b&#39;\r\n&#39;</span><br><span class="line">                self.redis_conn.set(&quot;camera&quot;, camera_data)</span><br><span class="line"></span><br><span class="line">    def close_camera(self):</span><br><span class="line">        print(&quot;关闭摄像头&quot;)</span><br><span class="line">        self.cap.release() # 释放摄像头</span><br></pre></td></tr></table></figure>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2020/05/16/python/numpy%E5%92%8Cpandas/" class="next-post btn btn-default" title='numpy和pandas'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            numpy和pandas</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#cv2模块安装"><span class="toc-text">cv2模块安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一个简单应用"><span class="toc-text">一个简单应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器上显示摄像头拍摄内容（支持多个网页同时打开）"><span class="toc-text">浏览器上显示摄像头拍摄内容（支持多个网页同时打开）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#上面内容的精简实现"><span class="toc-text">上面内容的精简实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#django上简易实现，（不支持浏览器多开，如果要多开，看django调用摄像头改进）"><span class="toc-text">django上简易实现，（不支持浏览器多开，如果要多开，看django调用摄像头改进）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#django调用摄像头改进"><span class="toc-text">django调用摄像头改进</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
